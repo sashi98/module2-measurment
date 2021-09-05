@@ -24,7 +24,7 @@ public class Measurement {
 
     @Override
     public int hashCode() {
-        return Objects.hash(qty, unit);
+        return Objects.hash(this.unit.convertToBase(this.qty));
     }
 
     public static Measurement centimeter(int qty) {
