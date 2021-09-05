@@ -27,16 +27,15 @@ public class Measurement {
         return Objects.hash(qty, unit);
     }
 
-
-    public static Measurement newCentimeter(int qty) {
+    public static Measurement centimeter(int qty) {
         return new Measurement(qty, Unit.CENTI_METER);
     }
 
-    public static Measurement newMeter(int qty) {
+    public static Measurement meter(int qty) {
         return new Measurement(qty, Unit.METER);
     }
 
-    public static Measurement newKilometer(int qty) {
+    public static Measurement kilometer(int qty) {
         return new Measurement(qty, Unit.KILO_METER);
     }
 }
