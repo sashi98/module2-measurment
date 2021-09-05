@@ -28,17 +28,17 @@ public class WeightTest {
     }
 
     @Test
-    public void _1000grams_plus_1000grams_equals_2000grams() throws IncompatibleMeasurementTypeException {
+    public void _1000grams_plus_1000grams_equals_2000grams() throws IncompatibleMeasurementTypeException, IllegalOperationException {
         Assertions.assertEquals(gram(2000), gram(1000).add(gram(1000)));
     }
 
     @Test
-    public void _1kilograms_plus_300grams_equals_1_point_3kilograms() throws IncompatibleMeasurementTypeException {
+    public void _1kilograms_plus_300grams_equals_1_point_3kilograms() throws IncompatibleMeasurementTypeException, IllegalOperationException {
         Assertions.assertEquals(kilogram(1.3), kilogram(1).add(gram(300)));
     }
 
     @Test
-    public void _500grams_plus_1kilograms_equals_1500grams() throws IncompatibleMeasurementTypeException {
+    public void _500grams_plus_1kilograms_equals_1500grams() throws IncompatibleMeasurementTypeException, IllegalOperationException {
         Assertions.assertEquals(gram(1500), gram(500).add(kilogram(1)));
     }
 

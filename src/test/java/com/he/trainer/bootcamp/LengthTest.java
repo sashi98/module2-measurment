@@ -64,17 +64,17 @@ public class LengthTest {
     }
 
     @Test
-    public void _1000meters_plus_1000_meters_equals_2000meters() throws IncompatibleMeasurementTypeException {
+    public void _1000meters_plus_1000_meters_equals_2000meters() throws IncompatibleMeasurementTypeException, IllegalOperationException {
         Assertions.assertEquals(meter(2000), meter(1000).add(meter(1000)));
     }
 
     @Test
-    public void _1kilometer_plus_300meters_equals_1_point_3_kilometers() throws IncompatibleMeasurementTypeException {
+    public void _1kilometer_plus_300meters_equals_1_point_3_kilometers() throws IncompatibleMeasurementTypeException, IllegalOperationException {
         Assertions.assertEquals(kilometer(1.3), kilometer(1).add(meter(300)));
     }
 
     @Test
-    public void _500meters_plus_1kilometers_equals_1500meters() throws IncompatibleMeasurementTypeException {
+    public void _500meters_plus_1kilometers_equals_1500meters() throws IncompatibleMeasurementTypeException, IllegalOperationException {
         Assertions.assertEquals(meter(1500), meter(500).add(kilometer(1)));
     }
 }

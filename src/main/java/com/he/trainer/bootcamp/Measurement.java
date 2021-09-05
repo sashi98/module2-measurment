@@ -17,7 +17,7 @@ public class Measurement {
         if (!(o instanceof Measurement)) return false;
         Measurement that = (Measurement) o;
         if (this.unit.isSameTypeOf(that.unit)) {
-            return this.unit.convertToBase(this.qty) == that.unit.convertToBase(that.qty);
+            return Math.round(this.unit.convertToBase(this.qty)) == Math.round(that.unit.convertToBase(that.qty));
         }
         return false;
     }
@@ -51,10 +51,21 @@ public class Measurement {
         return new Measurement(qty, Unit.KILO_GRAM);
     }
 
-    public Measurement add(Measurement that) throws IncompatibleMeasurementTypeException {
-        if (!this.unit.isSameTypeOf(that.unit)){
-            throw new IncompatibleMeasurementTypeException();
-        }
+    public static Measurement fahrenheit(double qty) {
+        return new Measurement(qty, Unit.FAHRENHEIT);
+    }
+
+    public static Measurement celsius(double qty) {
+        return new Measurement(qty, Unit.CELSIUS);
+    }
+
+    public static Measurement kelvin(double qty) {
+        return new Measurement(qty, Unit.KELVIN);
+    }
+
+    public Measurement add(Measurement that) throws IncompatibleMeasurementTypeException, IllegalOperationException {
+        if (!this.unit.isSameTypeOf(that.unit)) throw new IncompatibleMeasurementTypeException();
+        if (this.unit.isTemperatureType()) throw new IllegalOperationException();
         return new Measurement(this.unit.convertFromBase(this.unit.convertToBase(this.qty) + that.unit.convertToBase(that.qty)), this.unit);
     }
 
