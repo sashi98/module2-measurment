@@ -47,8 +47,3 @@ public class WeightTest {
         Assertions.assertThrows(IncompatibleMeasurementTypeException.class, () -> meter(500).add(gram(500)));
     }
 }
-
-/*
-Requirement 3 - Weight and weight addition
-
- */
