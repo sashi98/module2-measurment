@@ -31,6 +31,10 @@ public class Measurement {
         return new Measurement(qty, Unit.CENTI_METER);
     }
 
+    public static Measurement miligram(double qty) {
+        return new Measurement(qty, Unit.MILI_GRAM);
+    }
+
     public static Measurement meter(int qty) {
         return new Measurement(qty, Unit.METER);
     }
@@ -39,7 +43,18 @@ public class Measurement {
         return new Measurement(qty, Unit.KILO_METER);
     }
 
-    public Measurement add(Measurement that) {
+    public static Measurement gram(double qty) {
+        return new Measurement(qty, Unit.GRAM);
+    }
+
+    public static Measurement kilogram(double qty) {
+        return new Measurement(qty, Unit.KILO_GRAM);
+    }
+
+    public Measurement add(Measurement that) throws IncompatibleMeasurementTypeException {
+        if (!this.unit.isSameTypeOf(that.unit)){
+            throw new IncompatibleMeasurementTypeException();
+        }
         return new Measurement(this.unit.convertFromBase(this.unit.convertToBase(this.qty) + that.unit.convertToBase(that.qty)), this.unit);
     }
 

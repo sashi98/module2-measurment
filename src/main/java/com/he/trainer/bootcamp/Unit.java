@@ -4,7 +4,12 @@ public enum Unit {
     MILI_METER(1, MeasureType.LENGTH),
     CENTI_METER(10, MeasureType.LENGTH),
     METER(1000, MeasureType.LENGTH),
-    KILO_METER(1000 * 1000, MeasureType.LENGTH);
+    KILO_METER(1000 * 1000, MeasureType.LENGTH),
+
+    MILI_GRAM(1, MeasureType.WEIGHT),
+    CENTI_GRAM(10, MeasureType.WEIGHT),
+    GRAM(1000, MeasureType.WEIGHT),
+    KILO_GRAM(1000 * 1000, MeasureType.WEIGHT);
 
     private final int factor;
     private final MeasureType type;
