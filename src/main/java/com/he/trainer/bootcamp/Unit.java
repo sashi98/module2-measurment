@@ -14,11 +14,15 @@ public enum Unit {
         this.type = type;
     }
 
-    public int convertToBase(int qty) {
-        return this.factor * qty;
+    public double convertToBase(double qty) {
+        return qty * this.factor;
     }
 
-    public boolean isSameTypeOf(Unit unit){
+    public double convertFromBase(double qty) {
+        return qty / this.factor;
+    }
+
+    public boolean isSameTypeOf(Unit unit) {
         return this.type == unit.type;
     }
 }
